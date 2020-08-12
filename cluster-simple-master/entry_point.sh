@@ -1,10 +1,10 @@
 #!/bin/bash
 
-echo "Baixando e instalando o K3S";
+echo "Downloading and installing K3S";
 
 curl -sfl https://get.k3s.io | sh - ;
 
-echo "K3S Instado";
+echo "K3S Installed";
 
 kubectl get nodes;
 

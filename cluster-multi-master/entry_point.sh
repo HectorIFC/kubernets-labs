@@ -1,5 +1,5 @@
 #!/bin/bash
 
-echo "A máquina subiu";
+echo "VM is UP";
 # apt-get update -y
 # apt-get upgrade -y
