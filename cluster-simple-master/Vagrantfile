@@ -4,7 +4,7 @@ Vagrant.configure("2") do |config|
     config.vm.hostname = villains[i]
     config.vm.box = "ubuntu/bionic64"
     config.vm.box_check_update = false
-    config.vm.network "public_network", bridge: "Realtek PCIe GbE Family Controller", ip: "192.168.1.120"
+    config.vm.network "public_network", bridge: "Realtek PCIe GbE Family Controller", ip: "192.168.1.12#{i}"
     config.vm.provision "shell", path: "entry_point.sh"
     config.vm.provider "virtualbox" do |vb|
       vb.name = villains[i]
