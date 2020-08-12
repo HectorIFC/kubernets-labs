@@ -1,0 +1,21 @@
+Vagrant.configure("2") do |config|
+  villains = ["thanos", "jocker", "magneto", "ultron", "galactus", "loki"]
+  
+  (0..5).each do |i|
+    config.vm.define "node_#{i}" do |web|
+      web.vm.hostname = villains[i]
+      web.vm.box = "ubuntu/bionic64"
+      web.vm.box_check_update = false
+      web.vm.network "public_network", bridge: "Realtek PCIe GbE Family Controller", ip: "192.168.1.12#{i}"
+      web.vm.provision "shell", path: "entry_point.sh"
+      web.vm.provider "virtualbox" do |vb|
+        vb.name = villains[i]
+        vb.memory = 2048
+        vb.cpus = 2
+      end
+
+    end
+  end
+
+end
+
